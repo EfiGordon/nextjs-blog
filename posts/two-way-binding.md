@@ -68,3 +68,5 @@ Note that we added the old state properties `...inputState[0]` because `useState
 
 That's all - we have **two-way binding**.
 Thank you for reading and i hope you enjoyed my explanation.
+
+See you in the next post.
