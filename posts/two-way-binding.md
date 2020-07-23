@@ -68,3 +68,8 @@ Note that we added the old state properties `...inputState[0]` because `useState
 
 That's all - we have **two-way binding**.
 Thank you for reading and i hope you enjoyed my explanation.
+
+**See you in the next post.**
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+
