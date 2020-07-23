@@ -3,7 +3,6 @@ title: 'Node.js & Javacript Consepts'
 date: '2020-07-23'
 ---
 
-#   Node.js & Javacript Consepts
 ## Those are my notes from [Learn and Undertand NodeJS course](https://www.udemy.com/course/understand-nodejs/)
 ---
 
