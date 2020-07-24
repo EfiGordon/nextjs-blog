@@ -16,8 +16,8 @@ This is how actually node suitable to be a server.
 
 Side note
 ```
-   Note that Node does not support DOM manipulation.
-   The DOM is provided by the browser and not by the javascript engine. (So basiclly Browser = DOM + Javascript engine + other things)
+Note that Node does not support DOM manipulation.
+The DOM is provided by the browser and not by the javascript engine. (So basiclly Browser = DOM + Javascript engine + other things)
 ```
 ---------
 ### Events and Event Emitter
@@ -84,6 +84,9 @@ Whhow somebody here is drunk
 ---------
 ### Sync? Async?
 OK, so as we mentioned before Node.js is consist of javascript engine (V8) and of several other parts. 
-The V8 part is synchronous. **JS is synchronous language**, but it has the event loop.
-The other parts of Node are Async, so the answer is that **NodeJS is asynchrnous**.
+The *V8* part is synchronous - **JS is synchronous language**, but it has the event loop.
+The other part of Node - *libuv, that connected to the OS* is Async, so the answer is that **NodeJS is asynchrnous**.
+
+So due to libuv abilities to be async, when we deal with it we send a callback to it.
+this callback will run when the task will be finished.
 

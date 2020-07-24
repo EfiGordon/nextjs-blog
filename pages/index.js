@@ -21,12 +21,14 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <h3>Hi - Welcome to my personal website</h3>
-        <p>My name is Efraim Gordon, I am a Full stack web developer from Israel</p>
-        <p>Here you can find some of my notes and of course feel free to contact me via my
-        <a href="https://www.linkedin.com/in/efigordon/" target="_blank"> Linkedin </a>
+        <h3>Hey :)</h3>
+        <p>My name is Efraim Gordon and welcome to my blog</p>
+        <p>Here you could find some of my notes about various topics </p>
+        <p>(Mostly about Information Security and Web Development)</p>
+        <p>Feel free to contact me via my
+        <span className={utilStyles.space}><a href="https://www.linkedin.com/in/efigordon/" target="_blank">Linkedin</a></span>
          or
-          <a href="https://github.com/EfiGordon/" target="_blank"> Github</a> page.</p>
+          <span className={utilStyles.space}> <a href="https://github.com/EfiGordon/" target="_blank" rel="noopener noreferrer">Github</a></span> page.</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
