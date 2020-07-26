@@ -89,4 +89,3 @@ The other part of Node - *libuv, that connected to the OS* is Async, so the answ
 
 So due to libuv abilities to be async, when we deal with it we send a callback to it.
 this callback will run when the task will be finished.
-
