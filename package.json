@@ -10,7 +10,10 @@
   "dependencies": {
     "date-fns": "^2.12.0",
     "gray-matter": "^4.0.2",
+    "mongodb": "^3.5.9",
     "next": "9.3.5",
+    "next-connect": "^0.8.1",
+    "node-fetch": "^2.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "remark": "^12.0.0",
