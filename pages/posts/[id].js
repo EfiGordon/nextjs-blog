@@ -5,7 +5,7 @@ import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import getComments from '../../lib/comments-service';
 //import { DatePicker } from 'antd';
-
+import Comments from '../../components/comments';
 
 export default function Post({ postData }) {
     return (
@@ -23,6 +23,7 @@ export default function Post({ postData }) {
 
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} className={[utilStyles.mainArea, postData.lang].join(' ')} />
             </article>
+            <Comments />
         </Layout>
     )
 }
