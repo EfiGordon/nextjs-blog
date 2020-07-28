@@ -5,9 +5,39 @@ import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import getComments from '../../lib/comments-service';
 //import { DatePicker } from 'antd';
+import PostComment from '../../components/post-comment';
 import Comments from '../../components/comments';
+import { Tooltip, List } from 'antd';
+import moment from 'moment';
 
-export default function Post({ postData }) {
+const data = [
+    {
+        name: 'Han Solo',
+        comment: (
+            <p>
+                console.log('gggggg');
+                We supply a series of design principles, practical patterns and high quality design
+                resources (Sketch and Axure), to help people create their product prototypes beautifully and
+                efficiently.
+            </p>
+        ),
+        date: (
+            <Tooltip
+                title={moment()
+                    .subtract(1, 'days')
+                    .format('YYYY-MM-DD HH:mm:ss')}
+            >
+                <span>
+                    {moment()
+                        .subtract(1, 'days')
+                        .fromNow()}
+                </span>
+            </Tooltip>
+        ),
+        mail: 'eff@fff.f'
+    }
+];
+export default function Post({ postData, postId, commentsData }) {
     return (
 
         <Layout>
@@ -23,7 +53,8 @@ export default function Post({ postData }) {
 
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} className={[utilStyles.mainArea, postData.lang].join(' ')} />
             </article>
-            <Comments />
+            <Comments data={commentsData} />
+            <PostComment postId={postId} />
         </Layout>
     )
 }
@@ -44,18 +75,15 @@ export async function getStaticProps({ params }) {
         postData: postData
     });
 
-    try {
-        const comments = await getComments(params.id);
-        console.log(comments)
-    } catch (e) {
-        console.log({
-            path: '[id].js',
-            e: e
-        })
-    }
+
+    const comments = await getComments(params.id);
+    console.log(comments)
+
     return {
         props: {
-            postData
+            postData,
+            postId: params.id,
+            commentsData: comments
         }
     }
 }
