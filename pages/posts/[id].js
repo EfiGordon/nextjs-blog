@@ -7,36 +7,9 @@ import getComments from '../../lib/comments-service';
 //import { DatePicker } from 'antd';
 import PostComment from '../../components/post-comment';
 import Comments from '../../components/comments';
-import { Tooltip, List } from 'antd';
-import moment from 'moment';
 
-const data = [
-    {
-        name: 'Han Solo',
-        comment: (
-            <p>
-                console.log('gggggg');
-                We supply a series of design principles, practical patterns and high quality design
-                resources (Sketch and Axure), to help people create their product prototypes beautifully and
-                efficiently.
-            </p>
-        ),
-        date: (
-            <Tooltip
-                title={moment()
-                    .subtract(1, 'days')
-                    .format('YYYY-MM-DD HH:mm:ss')}
-            >
-                <span>
-                    {moment()
-                        .subtract(1, 'days')
-                        .fromNow()}
-                </span>
-            </Tooltip>
-        ),
-        mail: 'eff@fff.f'
-    }
-];
+
+
 export default function Post({ postData, postId, commentsData }) {
     return (
 
