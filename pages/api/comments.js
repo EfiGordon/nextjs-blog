@@ -28,7 +28,7 @@ async function connectToDatabase(uri) {
 
 // The main, exported, function of the endpoint,
 // dealing with the request and subsequent response
-module.exports = async (req, res) => {
+export default async (req, res) => {
     // Get a database connection, cached or otherwise,
     // using the connection string environment variable as the argument
     const db = await connectToDatabase(process.env.MONGODB_URI)
