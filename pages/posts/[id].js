@@ -13,22 +13,21 @@ import { getDB } from '../../services/database';
 
 export default function Post({ postData, postId, commentsArray }) {
     return (
-
         <Layout>
             <Head>
-                {postData.title && <title>{postData.title}</title>}
+                {postData.title && <title>{postData.title || 'default-value'}</title>}
             </Head>
             <article>
-                {postData.title && <h1 className={utilStyles.headingXl}>{postData.title}</h1>}
+                {postData.title && <h1 className={utilStyles.headingXl}>{postData.title || 'default-value'}</h1>}
                 {/* postData.id*/}
                 <div className={utilStyles.lightText}>
-                    <Date dateString={postData.date} />
+                    <Date dateString={postData.date || '00-00-00'} />
                 </div>
 
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} className={[utilStyles.mainArea, postData.lang].join(' ')} />
             </article>
-            {commentsArray && <Comments data={commentsArray} />}
-            {postData.postId && <PostComment postId={postId} />}
+            <Comments data={commentsArray || []} />
+            <PostComment postId={postId || 'default-value'} />
         </Layout>
     )
 }
@@ -37,7 +36,7 @@ export async function getStaticPaths() {
     const paths = getAllPostIds()
     return {
         paths,
-        fallback: true
+        fallback: false
     }
 }
 
