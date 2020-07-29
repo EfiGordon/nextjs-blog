@@ -10,7 +10,7 @@ export default function Comments(commentsArray) {
         <div>
             <Divider />
             <Typography.Title level={3} mark={true}> Comments Area </Typography.Title>
-            {(commentsArray.length > 0) ? commentsArray.data.map(comment => {
+            {(commentsArray.data.length > 0) ? commentsArray.data.map(comment => {
                 return <Comment item={comment} key={comment._id} />
             }) : ""
 
