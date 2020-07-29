@@ -16,10 +16,10 @@ export default function Post({ postData, postId, commentsArray }) {
 
         <Layout>
             <Head>
-                <title>{postData.title}</title>
+                {postData.title && <title>{postData.title}</title>}
             </Head>
             <article>
-                <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+                {postData.title && <h1 className={utilStyles.headingXl}>{postData.title}</h1>}
                 {/* postData.id*/}
                 <div className={utilStyles.lightText}>
                     <Date dateString={postData.date} />
@@ -27,8 +27,8 @@ export default function Post({ postData, postId, commentsArray }) {
 
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} className={[utilStyles.mainArea, postData.lang].join(' ')} />
             </article>
-            <Comments data={commentsArray} />
-            <PostComment postId={postId} />
+            {commentsArray && <Comments data={commentsArray} />}
+            {postData.postId && <PostComment postId={postId} />}
         </Layout>
     )
 }
