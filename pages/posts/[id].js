@@ -32,15 +32,16 @@ export default function Post({ postData, postId, commentsArray }) {
     )
 }
 
-export async function getStaticPaths() {
-    const paths = getAllPostIds()
-    return {
-        paths,
-        fallback: false
-    }
-}
+// export async function getStaticPaths() {
+//     const paths = getAllPostIds()
+//     return {
+//         paths,
+//         fallback: false
+//     }
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
+    const paths = getAllPostIds();
     const postData = await getPostData(params.id)
     const db = await getDB();
     let comments = await db.collection('comments').find({ postId: params.id }).toArray();
@@ -57,7 +58,8 @@ export async function getStaticProps({ params }) {
         props: {
             postData: postData,
             postId: params.id,
-            commentsArray: commentsArray
+            commentsArray: commentsArray,
+            paths
         }
     }
 }
