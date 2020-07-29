@@ -45,20 +45,20 @@ export async function getStaticProps({ params }) {
     const postData = await getPostData(params.id)
     const db = await getDB();
     let comments = await db.collection('comments').find({ postId: params.id }).toArray();
-    console.log(
-        {
-            parsed: JSON.stringify(comments)
-        });
+    const commentsArray = JSON.parse(JSON.stringify(comments));
+
     console.log({
         path: 'id',
-        comments: comments,
-        type: typeof comments[0]
+        postId: params.id,
+        commentsArray: commentsArray,
+        postData: postData,
     })
+
     return {
         props: {
             postData: postData,
             postId: params.id,
-            commentsArray: JSON.parse(JSON.stringify(comments))
+            commentsArray: commentsArray
         }
     }
 }
