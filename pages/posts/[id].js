@@ -15,19 +15,19 @@ export default function Post({ postData, postId, commentsArray }) {
     return (
         <Layout>
             <Head>
-                {postData.title && <title>{postData.title || 'default-value'}</title>}
+                <title>{postData.title}</title>
             </Head>
             <article>
-                {postData.title && <h1 className={utilStyles.headingXl}>{postData.title || 'default-value'}</h1>}
+                <h1 className={utilStyles.headingXl}>{postData.title}</h1>
                 {/* postData.id*/}
                 <div className={utilStyles.lightText}>
-                    <Date dateString={postData.date || '00-00-00'} />
+                    <Date dateString={postData.date} />
                 </div>
 
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} className={[utilStyles.mainArea, postData.lang].join(' ')} />
             </article>
-            <Comments data={commentsArray || []} />
-            <PostComment postId={postId || 'default-value'} />
+            <Comments data={commentsArray} />
+            <PostComment postId={postId} />
         </Layout>
     )
 }
