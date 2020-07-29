@@ -7,10 +7,11 @@ import getComments from '../../lib/comments-service';
 //import { DatePicker } from 'antd';
 import PostComment from '../../components/post-comment';
 import Comments from '../../components/comments';
+import { ConfigProvider } from 'antd'
+import { getDB } from '../../services/database';
 
 
-
-export default function Post({ postData, postId, commentsData }) {
+export default function Post({ postData, postId, commentsArray }) {
     return (
 
         <Layout>
@@ -26,7 +27,7 @@ export default function Post({ postData, postId, commentsData }) {
 
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} className={[utilStyles.mainArea, postData.lang].join(' ')} />
             </article>
-            <Comments data={commentsData} />
+            <Comments data={commentsArray} />
             <PostComment postId={postId} />
         </Layout>
     )
@@ -42,13 +43,22 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const postData = await getPostData(params.id)
-    const comments = await getComments(params.id);
-
+    const db = await getDB();
+    let comments = await db.collection('comments').find({ postId: params.id }).toArray();
+    console.log(
+        {
+            parsed: JSON.stringify(comments)
+        });
+    console.log({
+        path: 'id',
+        comments: comments,
+        type: typeof comments[0]
+    })
     return {
         props: {
-            postData,
+            postData: postData,
             postId: params.id,
-            commentsData: comments
+            commentsArray: JSON.parse(JSON.stringify(comments))
         }
     }
 }
