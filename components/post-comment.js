@@ -15,7 +15,8 @@ const validateMessages = {
     }
 };
 
-export default function PostComment({ postId }) {
+export default function PostComment({ postId, commentsArray, setComments }) {
+    const [form] = Form.useForm();
 
     const onFinish = values => {
         values['postId'] = postId;
@@ -29,13 +30,20 @@ export default function PostComment({ postId }) {
                 console.log({
                     response: response
                 });
+                form.resetFields();
+                fetch('/api/comments?postId=' + postId)
+                    .then(res => {
+                        return res.json();
+                    })
+                    .then(data => setComments(data))
+
             })
     };
 
     return (
         <div>
             <Divider />
-            <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+            <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages} form={form}>
                 <Form.Item name="name" label="Name" rules={[{ required: true }]}>
                     <Input />
                 </Form.Item>

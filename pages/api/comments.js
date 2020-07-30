@@ -37,12 +37,12 @@ export default async (req, res) => {
     const collection = await db.collection('comments')
 
     if ((req.method) == 'GET') {
-        // const postId = req.query.postId;
-        // // Select the users collection from the database
-        // const comments = await collection.find({ postId: postId }).toArray()
+        const postId = req.query.postId;
+        // Select the users collection from the database
+        const comments = await collection.find({ postId: postId }).toArray()
 
-        // Respond with a JSON string of all users in the collection
-        res.status(200).json({ msg: 'Hey' })
+
+        res.status(200).json(comments);
     }
 
     if ((req.method) == 'POST') {
