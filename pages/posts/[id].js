@@ -47,6 +47,7 @@ export async function getServerSideProps({ params }) {
         postId: params.id,
         commentsArray: commentsArray,
         postData: postData,
+        processEnv: process.env.MONGODB_URI
     })
 
     return {
