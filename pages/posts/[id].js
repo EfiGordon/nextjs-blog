@@ -12,6 +12,8 @@ import { getDB } from '../../services/database';
 
 
 export default function Post({ postData, postId, commentsArray }) {
+    //const [commentsState, setCommentsState] = useState(commentsArray);
+
     return (
         <Layout>
             <Head>
@@ -32,13 +34,6 @@ export default function Post({ postData, postId, commentsArray }) {
     )
 }
 
-// export async function getStaticPaths() {
-//     const paths = getAllPostIds()
-//     return {
-//         paths,
-//         fallback: false
-//     }
-// }
 
 export async function getServerSideProps({ params }) {
     const paths = getAllPostIds();
