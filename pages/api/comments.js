@@ -31,8 +31,8 @@ async function connectToDatabase(uri) {
 export default async (req, res) => {
     // Get a database connection, cached or otherwise,
     // using the connection string environment variable as the argument
-    const db = await connectToDatabase("mongodb+srv://efiAdmin:9te6E2uRmjNhcHA33ccn@cluster0.pm4ek.gcp.mongodb.net/CommentsDB?retryWrites=true&w=majority")
-
+    // const db = await connectToDatabase("mongodb+srv://efiAdmin:9te6E2uRmjNhcHA33ccn@cluster0.pm4ek.gcp.mongodb.net/CommentsDB?retryWrites=true&w=majority")
+    const db = await connectToDatabase(process.env.MONGODB_URI);
     // Select the "comments" collection from the database
     const collection = await db.collection('comments')
 
