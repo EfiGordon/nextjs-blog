@@ -3,8 +3,8 @@ title: 'Learning Google Cloud'
 date: '2020-08-06'
 ---
 
-Google Cloud has a free tier of 300$ so I wanted to try this and earn some cloud skills. 
-So in my journey of learning GCP here I'll share with you my notes.
+Google Cloud has a free tier of 300$ so I wanted to try this and earn some cloud skills.   
+So in my journey of learning GCP here I'll share with you my notes.  
 
 The reasons that I chose GCP over Azre / AWS are:
 * GCP has much more friendly user experience (for my opinion)
@@ -16,8 +16,8 @@ The reasons that I chose GCP over Azre / AWS are:
 
 
 
-So the first thing we need to do is to create a new project in the GCP. 
-Next step is  to download gcloud SDK.
+So the first thing we need to do is to create a new project in the GCP.   
+Next step is  to download gcloud SDK.  
 Great, now we can actually deploy services to the cloud.
 
 Let's create `index.js`  with the following content:
@@ -29,8 +29,9 @@ exports.helloGET = (req, res) => {
 `
 
 now in the cmd we will type:
+
 `gcloud functions deploy helloGET --runtime nodejs12 --trigger-http --allow-unauthenticated`
 
-and that's it.
-We have deployed our first hello world cloud function (known as lambda in AWS)
-
+and that's it.  
+We have deployed our first hello world cloud function (known as lambda in AWS)  
+You should see a link to the API entry ponit in the cmd.

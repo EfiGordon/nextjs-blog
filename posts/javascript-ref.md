@@ -1,3 +1,0 @@
-
-Sandbox:
-https://codesandbox.io/
